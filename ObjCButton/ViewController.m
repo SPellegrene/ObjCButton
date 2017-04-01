@@ -25,5 +25,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)ClickHereButton:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Question" message:@"Does 2 + 2 =4?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        UIAlertController *result = [UIAlertController alertControllerWithTitle: @"Answer" message:@"That is correct" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleCancel handler:nil];
+        [result addAction:ok];
+        [self presentViewController:result animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { UIAlertController *result = [UIAlertController alertControllerWithTitle:@"Answer" message:@"That is incorrect!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleCancel handler:nil];
+        [result addAction:ok];
+        [self presentViewController:result animated:YES completion:nil];
+    }];
+    
+    [alert addAction:yes];
+    [alert addAction:no];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 @end
